@@ -249,5 +249,10 @@ var xhttp = new XMLHttpRequest();
         }
 ```
 
+# XML en AJAX
+
+En el ejemplo pruebaXMLAjax.html , cuando la persona le da en el botón se lanza la función cargarXml(), esta crea un objecto xhttp, añade la función a ejecutar cuando la respuesta esta lista, y envia la solicitud. 
+
+Cuando la respuesta esta lista, se construye una tabla , se extraen los nodos y se muestra en pantalla.
 
 
