@@ -1,14 +1,14 @@
 # AJAX
 
 ## AJAX Significa:
-Asynchronous Javascript And Xml
+>Asynchronous Javascript And Xml
 
 ## Caracteristicas: 
-Con ajax se puede actualizar una pagina sin recargar toda.
+>Con ajax se puede actualizar una pagina sin recargar toda.
 
-Solicitar data desde el servidor.
+>Solicitar data desde el servidor.
 
-Recibir data desde el servidor.
+>Recibir data desde el servidor.
 
 Enviar data al servidor.
 
@@ -26,7 +26,7 @@ Javascript y HTML DOM -> visualizacion de la data
 6. La respuesta la lee JS.
 7. JS ejecuta la acción.
 
-# XMLHttpRequest:
+# XMLHttpRequest
 
 Todos los navegadores modernos los soportan.
 
@@ -90,9 +90,9 @@ var xhttp = new XMLHttpRequest();
 
 ## Acceso a los dominios:
 
-Por razones de seguridad los navegadores no permiten el acceso a través de dominios.
+>Por razones de seguridad los navegadores no permiten el acceso a través de dominios.
 
-# Enviar una solicitud a un servidor GET:
+# Enviar una solicitud a un servidor GET
 
 Para enviar una petición al servidor, usamos los metodos *open()* y *send()* : 
 
@@ -123,7 +123,7 @@ xhttp.open("GET", "ajax_php.php?nombre=Sebas", true);
 xhttp.send();
 ```
 
-# Enviar una solicitud a un servidor POST:
+# Enviar una solicitud a un servidor POST
 
 ```javascript
 var xhttp = new XMLHttpRequest();
@@ -131,7 +131,7 @@ xhttp.open("POST", "ajax_php.php", true);
 xhttp.send();
 ```
 
-Para pasar datos , se agrega una cabecera HTTP con setRequestHeader() , en el método send(), se especifican los datos:
+>Para pasar datos , se agrega una cabecera HTTP con setRequestHeader() , en el método send(), se especifican los datos:
 
 ```javascript
 var xhttp = new XMLHttpRequest();
@@ -142,10 +142,9 @@ xhttp.send("nombre=Sebas");
 
 ## Propiedad onreadystatechange:
 
-Con XMLHttpRequest se puede definir una función que se ejecutará cuando la solicitud reciba una respuesta.
+>Con XMLHttpRequest se puede definir una función que se ejecutará cuando la solicitud reciba una respuesta.
 
 La función se define en la propiedad onreadystatechange:
-
 
 ```javascript
 var xhttp = new XMLHttpRequest();
@@ -157,6 +156,72 @@ xhttp.onreadystatechange = function(){
 xhttp.open("GET", "ajax_php.php", true);
 xhttp.send();
 ```
+
+# Respuesta del servidor
+
+La propiedad __readyState__ contiene el estado del XMLHttpRequest.
+
+La propiedad __onreadystate__ define una función que se ejecutará cuando *readyState* cambie.
+
+La propiedad __status__ y la propiedad __statusText__ contienen el estado del objecto XMLHttpRequest.
+
+>La función onreadystatechange se llama cada vez que el readyState cambia.
+
+>Cuando readyState es 4 y el estado es 200, la respuesta esta lista.
+
+```javascript
+functionPrueba(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadychangestate = function(){
+        if(this.readyState = 4 && this.status == 200){
+            document.getElementById("main").innerHTML = this.responseText;
+        }
+    };
+}
+xhttp.open("GET", "ajax_php.php", true);
+xhttp.send();
+```
+>El evento onreadystatechange se activa cuatro veces(1-4), una vez para cada cambio en el readyState.
+
+## Usando un callback
+
+>Una función callback es una función que se le pasa como parámetro a otra función.
+la función de llamado debería contener la URL y que función llamar cuando la respuesta este lista.
+
+```javascript
+function cambiarDatos(url, funcionCallBack) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if(this.readyState == 4 && this.status == 200){
+                    funcionCallBack(this);
+                }
+            };
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+
+        function mostrarDatos(xhttp) {
+            document.getElementById("main").innerHTML =
+  xhttp.responseText;
+        }
+```
+
+## Propiedades de respuesta del servidor
+
+__responseText__ : Obtiene la respuesta como un string
+
+```javascript
+document.getElementById("main").innerHTML = xhttp.responseText;
+```
+
+__responseXML__ : Obtiene la respuesta como un xml
+
+## Métodos de respuesta del servidor
+
+__getResposeHeader()__ : Retorna información específica del header
+
+__getAllResponseHeaders()__ : Retorna toda la información del header
+
 
 
 
