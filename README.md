@@ -216,9 +216,28 @@ document.getElementById("main").innerHTML = xhttp.responseText;
 
 __responseXML__ : Obtiene la respuesta como un xml
 
+```javascript
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+        var xmlDatos = this.responseXML;
+    }
+}
+```
+
 ## Métodos de respuesta del servidor
 
 __getResposeHeader()__ : Retorna información específica del header
+```javascript
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function(){
+    if(this.readyState = 4 && status == 200){
+        document.getElementById().innerHTML = this.getAllResponseHeaders();
+    }
+};
+xhttp.open("GET", "ajax_php.php", true);
+xhttp.send();
+```
 
 __getAllResponseHeaders()__ : Retorna toda la información del header
 
