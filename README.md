@@ -89,3 +89,35 @@ var xhttp = new XMLHttpRequest();
 ## Acceso a los dominios:
 
 Por razones de seguridad los navegadores no permiten el acceso a través de dominios.
+
+# Enviar una solicitud a un servidor GET:
+
+Para enviar una petición al servidor, usamos los metodos *open()* y *send()* : 
+
+```javascript
+var xhttp = new XMLHttpRequest(); 
+xhttp.open("GET", "ajax.txt", true);
+xhttp.send();
+```
+## Solicitud GET:
+
+```javascript
+var xhttp = new XMLHttpRequest(); 
+xhttp.open("GET", "ajax_php.php", true);
+xhttp.send();
+```
+Para no obtener un resultado almacenado en caché, se puede usar un identificador único a la URL:
+
+```javascript
+var xhttp = new XMLHttpRequest();
+xhttp.open("GET", "ajax_php.php?token="+Math.random() , true);
+xhttp.send();
+```
+Para enviar información agregarla a la URL.
+
+```javascript
+var xhttp = new XMLHttpRequest();
+xhttp.open("GET", "ajax_php.php?nombre=Sebas", true);
+xhttp.send();
+```
+
