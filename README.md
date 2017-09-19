@@ -51,11 +51,13 @@ var xhttp = new XMLHttpRequest();
  * __user__ : opcional nombre de usuario
  * __passw__: opcional contraseña
 
-```send()``` : Envia la petición al servidor usando *GET*
+```send()``` : Envia la petición al servidor usando *GET*.
 
-```send(string)```: Envia la petición al servidor usando *POST* 
+```send(string)```: Envia la petición al servidor usando *POST*.
 
-```setRequestHeader()``` : Adicionar label/value al header que se va a enviar
+```setRequestHeader()``` : Adicionar label/value al header que se va a enviar.
+
+```setRequestHeader(header, value)``` : Adicionar HTTP header a la petición, *header* especifica el nombre del header y *value* especifica el valor del header. 
 
 ## Propiedades del XMLHttpRequest:
 ```onreadystatechange```: Define una función para ser llamada cuando la propiedad readyState cambia.
@@ -120,4 +122,25 @@ var xhttp = new XMLHttpRequest();
 xhttp.open("GET", "ajax_php.php?nombre=Sebas", true);
 xhttp.send();
 ```
+
+# Enviar una solicitud a un servidor POST:
+
+```javascript
+var xhttp = new XMLHttpRequest();
+xhttp.open("POST", "ajax_php.php", true);
+xhttp.send();
+```
+
+Para pasar datos , se agrega una cabecera HTTP con setRequestHeader() , en el método send(), se especifican los datos:
+
+```javascript
+var xhttp = new XMLHttpRequest();
+xhttp.open("POST", "ajax_php.php", true);
+xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xhttp.send("nombre=Sebas");
+```
+
+
+
+
 
