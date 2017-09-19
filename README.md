@@ -140,7 +140,23 @@ xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhttp.send("nombre=Sebas");
 ```
 
+## Propiedad onreadystatechange:
 
+Con XMLHttpRequest se puede definir una función que se ejecutará cuando la solicitud reciba una respuesta.
+
+La función se define en la propiedad onreadystatechange:
+
+
+```javascript
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+        document.getElementById("demo").innerHTML = this.responseText;
+    }
+};
+xhttp.open("GET", "ajax_php.php", true);
+xhttp.send();
+```
 
 
 
