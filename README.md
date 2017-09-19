@@ -232,7 +232,7 @@ __getResposeHeader()__ : Retorna información específica del header
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function(){
     if(this.readyState = 4 && status == 200){
-        document.getElementById().innerHTML = this.getAllResponseHeaders();
+        document.getElementById().innerHTML =  this.getResponseHeader("Last-Modified");
     }
 };
 xhttp.open("GET", "ajax_php.php", true);
@@ -240,7 +240,14 @@ xhttp.send();
 ```
 
 __getAllResponseHeaders()__ : Retorna toda la información del header
-
+```javascript
+var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if(this.readyState == 4 && this.status == 200){
+                document.getElementById("main").innerHTML = this.getAllResponseHeaders();
+            };
+        }
+```
 
 
 
