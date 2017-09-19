@@ -25,3 +25,67 @@ Javascript y HTML DOM -> visualizacion de la data
 5. El servidor envia la respuesta al cliente.
 6. La respuesta la lee JS.
 7. JS ejecuta la acción.
+
+# XMLHttpRequest:
+
+Todos los navegadores modernos los soportan.
+
+Para crear un objecto:
+
+```javascript
+var xhttp = new XMLHttpRequest();
+```
+
+## Metodos del objecto XMLHttpRequest:
+
+```abort()``` : Cancelar el request actual
+
+```getAllResponseHeaders()``` : Retorna información del header 
+
+```getResponseHeader()```: Retorna la información específica del header 
+
+```open(method, url, async, user,passw) ```: Especifica la petición,
+ * __method__ : El tipo de petición GET o POST
+ * __url__ : la ruta del archivo
+ * __async__ : *true*(async), *false*(sync)
+ * __user__ : opcional nombre de usuario
+ * __passw__: opcional contraseña
+
+```send()``` : Envia la petición al servidor usando *GET*
+
+```send(string)```: Envia la petición al servidor usando *POST* 
+
+```setRequestHeader()``` : Adicionar label/value al header que se va a enviar
+
+## Propiedades del XMLHttpRequest:
+```onreadystatechange```: Define una función para ser llamada cuando la propiedad readyState cambia.
+
+```readyState```: Tiene el estado del XMLHttpRequest:
+
+0. Petición no inicializada.
+1. Conexión al servidor establecida.
+2. Petición recibida.
+3. Petición en proceso.
+4. Petición finalizada y respuesta lista.
+
+```responseText```: Retorna la respuesta en una cadena.
+
+```responseXML```: Retorna la respuesta en XML.
+
+```status```: Retorna el número del estado de la petición: 
+
+*200* : OK
+*403* : Forbidden
+*404* : Not Found
+
+1xx: Information
+2xx: Successful
+3xx: Redirection
+4xx: Client Error
+5xx: Server Error
+
+```statusText```: Retorna el texto del status "OK"...
+
+## Acceso a los dominios:
+
+Por razones de seguridad los navegadores no permiten el acceso a través de dominios.
