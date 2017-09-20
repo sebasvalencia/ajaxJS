@@ -255,4 +255,24 @@ En el ejemplo pruebaXMLAjax.html , cuando la persona le da en el botón se lanza
 
 Cuando la respuesta esta lista, se construye una tabla , se extraen los nodos y se muestra en pantalla.
 
+# Ejemplo con PHP
+Cuando un usuario escribe un carácter en el campo de entrada, se ejecuta una función llamada mostrarPista.
+
+Pasos del ejemplo:
+* Se comprueba si el campo esta vacío.
+* Si está vacío, elimine el contenido y sale de la función.
+* Sino crea un objecto XMLHttpRequest.
+* Crea la función que se ejecutará cuando la respuesta del servidor esté lista.
+* Envía la solicitud al servidor PHP (servidor.php).
+* A la petición se le agrega lo que se escribe en el input.
+
+
+
+
+
+
+
+
+
+
 
