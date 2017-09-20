@@ -266,7 +266,7 @@ Pasos del ejemplo:
 * Envía la solicitud al servidor PHP (servidor.php).
 * A la petición se le agrega lo que se escribe en el input.
 
-
+En el servidor se comprueba una matriz de nombres y devuelve los que correspondan.
 
 
 
