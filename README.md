@@ -269,10 +269,7 @@ Pasos del ejemplo:
 En el servidor se comprueba una matriz de nombres y devuelve los que correspondan.
 
 
+# Ejemplo con Archivo:
+Cuando el usuario cargue la página, se carga el elemento 0 del archivo datos.xml
 
-
-
-
-
-
-
+Archivo: 5pruebaAjaxArchivo.html
